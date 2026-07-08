@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syed Mannan — Mechanical Engineer × Computer Science</title>
+<meta name="description" content="Portfolio of Syed Mannan, Mechanical Engineering student with a Computer Science minor. CAD design, programming, and analytical engineering.">
+
+<!-- Google Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (technical annotations) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+  <!-- ============ LOADER ============ -->
+  <!-- Full-screen preloader styled like a drawing sheet being drafted:
+       the name builds in stroke-by-stroke while a CAD-style progress
+       readout ticks up to 100%. Removed from the DOM once the page and
+       the minimum reveal time have both finished (see script.js). -->
+  <div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="loader__grid" aria-hidden="true"></div>
+
+    <div class="loader__inner">
+      <p class="loader__eyebrow">DWG NO. ME–CSE–2027 &nbsp;·&nbsp; OPENING SHEET</p>
+
+      <h1 class="loader__name" aria-hidden="true">
+        <span class="loader__name-row">
+          <span class="loader__name-word" data-word>SYED</span>
+        </span>
+        <span class="loader__name-row">
+          <span class="loader__name-word" data-word>MANNAN</span>
+        </span>
+      </h1>
+
+      <div class="loader__bar" aria-hidden="true">
+        <span class="loader__bar-fill" id="loaderBarFill"></span>
+      </div>
+
+      <div class="loader__meta" aria-hidden="true">
+        <span class="loader__status" id="loaderStatus">INITIALIZING</span>
+        <span class="loader__percent" id="loaderPercent">00%</span>
+      </div>
+    </div>
+
+    <div class="loader__corner loader__corner--tl" aria-hidden="true"></div>
+    <div class="loader__corner loader__corner--tr" aria-hidden="true"></div>
+    <div class="loader__corner loader__corner--bl" aria-hidden="true"></div>
+    <div class="loader__corner loader__corner--br" aria-hidden="true"></div>
+  </div>
+
+  <!-- Blueprint grid background, fixed behind all content -->
+  <div class="grid-backdrop" aria-hidden="true"></div>
+
+  <!-- Confined crosshair cursor, only rendered/active inside the hero viewport (see script.js) -->
+  <div class="crosshair" id="crosshair" aria-hidden="true">
+    <span class="crosshair__v"></span>
+    <span class="crosshair__h"></span>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__mark" aria-label="Syed Mannan, back to top">
+      <span class="nav__mark-ring"></span>
+      <span class="nav__mark-text">Syed Mannan</span>
+    </a>
+
+    <nav class="nav__links" id="navLinks">
+      <a href="#about" data-nav>About</a>
+      <a href="#education" data-nav>Education</a>
+      <a href="#skills" data-nav>Skills</a>
+      <a href="#certifications" data-nav>Certifications</a>
+      <a href="#achievements" data-nav>Achievements</a>
+      <a href="#contact" data-nav>Contact</a>
+    </nav>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__inner">
+
+      <p class="eyebrow reveal">MECHANICAL ENGINEERING &nbsp;×&nbsp; COMPUTER SCIENCE (MINOR)</p>
+
+      <h1 class="hero__title reveal">
+        Syed Mannan
+      </h1>
+
+      <p class="hero__role reveal">
+        Building the parts that move — and the code that drives them.
+      </p>
+
+      <p class="hero__lede reveal">
+        Final-year mechanical engineering student minoring in computer science.
+        I design in CATIA and AutoCAD, write Python and C, and I'm most interested
+        in where mechanical systems meet automation, simulation, and intelligent control.
+      </p>
+
+      <div class="hero__cta reveal">
+        <a href="#certifications" class="btn btn--primary">View credentials</a>
+        <a href="#contact" class="btn btn--ghost">Get in touch</a>
+      </div>
+
+    </div>
+
+    <!-- Signature graphic: a drafting-style ID / access card, now built as a
+         rotating 3D cube — every face a different facet of the drawing sheet.
+         Hovering pauses the spin and brings up a "lens" shine over the photo. -->
+    <div class="hero__viewport" id="heroViewport">
+
+      <!-- static dimension ring + origin ticks, drafting-style backdrop for the cube -->
+      <svg class="viewport-frame" viewBox="0 0 400 400" aria-hidden="true">
+        <circle class="ring ring--dashed" cx="200" cy="200" r="188"></circle>
+        <g class="origin-ticks" stroke-linecap="round">
+          <line x1="200" y1="4" x2="200" y2="20"></line>
+          <line x1="200" y1="380" x2="200" y2="396"></line>
+          <line x1="4" y1="200" x2="20" y2="200"></line>
+          <line x1="380" y1="200" x2="396" y2="200"></line>
+        </g>
+      </svg>
+
+      <!-- Everything below pivots together at the top, like a badge on a
+           lanyard swaying slightly on its clip. -->
+      <div class="id-rig" id="idRig">
+
+        <div class="id-rig__strap" aria-hidden="true"></div>
+
+        <div class="id-rig__clip" aria-hidden="true">
+          <span class="id-rig__clip-ring"></span>
+          <span class="id-rig__clip-body"></span>
+        </div>
+
+        <div class="id-card id-card--photo-only" id="idCard">
+          <div class="id-card__punch" aria-hidden="true"></div>
+          <div class="id-card__photo">
+            <img src="IMG_20260707_130453.jpg.jpeg" alt="Portrait of Syed Mannan" loading="eager">
+            <span class="id-card__photo-corner id-card__photo-corner--tl"></span>
+            <span class="id-card__photo-corner id-card__photo-corner--tr"></span>
+            <span class="id-card__photo-corner id-card__photo-corner--bl"></span>
+            <span class="id-card__photo-corner id-card__photo-corner--br"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- live coordinate readout, mirrors a CAD status bar -->
+      <p class="coord-readout" id="coordReadout">X 000.0&nbsp;&nbsp;Y 000.0</p>
+    </div>
+
+    <!-- Title block, styled after a real engineering drawing sheet -->
+    <div class="title-block">
+      <div class="title-block__cell title-block__cell--wide">
+        <span class="tb-label">TITLE</span>
+        <span class="tb-value">SYED MANNAN — PORTFOLIO</span>
+      </div>
+      <div class="title-block__cell">
+        <span class="tb-label">DWG NO.</span>
+        <span class="tb-value">ME–CSE–2027</span>
+      </div>
+      <div class="title-block__cell">
+        <span class="tb-label">SCALE</span>
+        <span class="tb-value">1 : 1</span>
+      </div>
+      <div class="title-block__cell">
+        <span class="tb-label">SHEET</span>
+        <span class="tb-value">01 OF 06</span>
+      </div>
+      <div class="title-block__cell">
+        <span class="tb-label">DATE</span>
+        <span class="tb-value" id="tbDate">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <!-- Continuous scrolling strip of the disciplines/tools the rest of the
+       page backs up with detail. Content is duplicated in script.js so the
+       loop is seamless; pauses on hover so it can actually be read. -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="tickerTrack">
+      <!-- Populated by script.js from the TICKER data array -->
+    </div>
+  </div>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="section__head reveal">
+      <span class="sheet-tag">SHEET 02 / 06 — PROFILE</span>
+      <h2>About</h2>
+    </div>
+
+    <div class="about__grid">
+      <p class="about__copy spotlight reveal">
+        I'm a final-year mechanical engineering student at RISE Krishna Sai Prakasam Group of
+        Institutions, minoring in computer science engineering. My work sits at the join between
+        two disciplines that aren't usually taught together: I model and draft physical parts in
+        CATIA and AutoCAD, then reach for Python, C, and SQL when a problem needs computation
+        instead of geometry.
+      </p>
+      <p class="about__copy spotlight reveal">
+        I'm drawn to the space where mechanical systems get smarter — automation, simulation,
+        and applied AI layered onto real hardware. I keep a clean academic record with no
+        backlogs, and I've backed my coursework with certifications in quantum computing, data
+        analytics, and robotics. I'm looking for an internship or entry-level role where I can
+        apply that combination and keep building on it.
+      </p>
+
+      <ul class="spec-sheet reveal" id="specSheet" aria-label="Quick facts">
+        <li class="spotlight"><span>Location</span><b>Kandukur, Andhra Pradesh, India</b></li>
+        <li class="spotlight"><span>Nationality</span><b>Indian</b></li>
+        <li class="spotlight"><span>Languages</span><b>English · Hindi · Telugu</b></li>
+        <li class="spotlight"><span>Status</span><b>Open to internships &amp; entry-level roles</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section" id="education">
+    <div class="section__head reveal">
+      <span class="sheet-tag">SHEET 03 / 06 — EDUCATION</span>
+      <h2>Education</h2>
+    </div>
+
+    <div class="edu__tracks">
+
+      <article class="edu-card reveal">
+        <header class="edu-card__head">
+          <span class="edu-card__tag">MAJOR</span>
+          <span class="edu-card__cgpa">78%<small>/100%</small></span>
+        </header>
+        <h3>Bachelor of Technology</h3>
+        <p class="edu-card__field">Mechanical Engineering</p>
+        <p class="edu-card__org">RISE Krishna Sai Prakasam Group of Institutions</p>
+        <p class="edu-card__meta">Andhra Pradesh, India &nbsp;·&nbsp; 2023 – 2027 (Expected)</p>
+      </article>
+
+      <div class="edu__convergence" aria-hidden="true">
+        <span class="edu__convergence-line"></span>
+        <span class="edu__convergence-label">CONVERGE</span>
+        <span class="edu__convergence-line"></span>
+      </div>
+
+      <article class="edu-card reveal">
+        <header class="edu-card__head">
+          <span class="edu-card__tag edu-card__tag--minor">MINOR</span>
+          <span class="edu-card__cgpa">90%<small>/100%</small></span>
+        </header>
+        <h3>Bachelor of Technology</h3>
+        <p class="edu-card__field">Computer Science Engineering</p>
+        <p class="edu-card__org">RISE Krishna Sai Prakasam Group of Institutions</p>
+        <p class="edu-card__meta">Andhra Pradesh, India &nbsp;·&nbsp; 2023 – 2027 (Expected)</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <div class="section__head reveal">
+      <span class="sheet-tag">SHEET 04 / 06 — INSTRUMENTATION</span>
+      <h2>Skills</h2>
+    </div>
+
+    <div class="panels">
+
+      <article class="panel reveal">
+        <div class="panel__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 17 L10 11 L4 5 M12 19 H20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Technical</h3>
+        <ul class="chips">
+          <li>C Programming</li>
+          <li>Python</li>
+          <li>CATIA</li>
+          <li>AutoCAD</li>
+          <li>SQL</li>
+        </ul>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7 V12 L15.5 14.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Analytical</h3>
+        <ul class="chips">
+          <li>Problem solving</li>
+          <li>Logical reasoning</li>
+        </ul>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 21 C2 16 6 14 8 14 C10 14 11 14.6 12 15.6 C13 14.6 14 14 16 14 C18 14 22 16 22 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Soft skills</h3>
+        <ul class="chips">
+          <li>Communication</li>
+          <li>Teamwork</li>
+          <li>Time management</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="section" id="certifications">
+    <div class="section__head reveal">
+      <span class="sheet-tag">SHEET 05 / 06 — CERTIFICATIONS</span>
+      <h2>Certifications</h2>
+      <p class="section__note">
+       A collection of certifications showcasing my dedication to continuous learning, technical excellence, and professional growth.
+      </p>
+    </div>
+
+    <div class="cert-grid" id="certGrid">
+      <!-- Cards are generated by script.js from the CERTIFICATIONS data array,
+           so adding a new certificate never requires touching this markup. -->
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section class="section" id="achievements">
+    <div class="section__head reveal">
+      <span class="sheet-tag">SHEET 06 / 06 — LOG</span>
+      <h2>Achievements &amp; Activities</h2>
+    </div>
+
+    <ul class="log" id="logList">
+      <!-- Populated by script.js from the ACHIEVEMENTS data array -->
+    </ul>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section--contact" id="contact">
+    <div class="section__head reveal">
+      <span class="sheet-tag">REVISION A — CONTACT</span>
+      <h2>Let's build something</h2>
+      <p class="section__note">
+        Open to internships and entry-level mechanical / cross-disciplinary engineering roles.
+      </p>
+    </div>
+
+    <div class="contact-block reveal">
+      <a class="contact-row" href="mailto:mannan66.syed@gmail.com">
+        <span class="contact-row__label">EMAIL</span>
+        <span class="contact-row__value">mannan66.syed@gmail.com</span>
+      </a>
+      <a class="contact-row" href="tel:+918309906850">
+        <span class="contact-row__label">PHONE</span>
+        <span class="contact-row__value">+91 83099 06850</span>
+      </a>
+      <a class="contact-row" href="https://www.linkedin.com/in/syed-mannan-4385522ba" target="_blank" rel="noopener noreferrer">
+        <span class="contact-row__label">LINKEDIN</span>
+        <span class="contact-row__value">/in/syed-mannan</span>
+      </a>
+      <a class="contact-row" href="https://www.instagram.com/mannu__syed?igsh=cG5veW91d2k0bjB1" target="_blank" rel="noopener noreferrer">
+         <span class="contact-row__label">INSTAGRAM</span>
+         <span class="contact-row__value">@mannu__syed</span>
+      </a>
+      <div class="contact-row contact-row--static">
+        <span class="contact-row__label">LOCATION</span>
+        <span class="contact-row__value">Kandukur, Andhra Pradesh, India</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Syed Mannan</span>
+    <span class="footer__rule" aria-hidden="true"></span>
+    <span>Designed &amp; built as a working drawing, not a template.</span>
+  </footer>
+
+  <!-- Certificate lightbox: hidden by default, filled and shown by script.js
+       when a certificate with a real image is clicked -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
+    <figure class="lightbox__figure">
+      <img src="" alt="" id="lightboxImg">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
